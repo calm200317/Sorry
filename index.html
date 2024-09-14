@@ -61,11 +61,24 @@
       transform: translate(-50%, -50%);
     }
 
+    /* CLICK ME button (hidden initially) */
+    .click-me-btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #008CBA;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      display: none;
+      margin-top: 20px;
+    }
+
     /* Beautiful text style */
     .message {
       font-size: 24px;
       font-weight: bold;
-      color: #ff69b4;
+      color: rgb(255, 76, 76);
       opacity: 0;
       transition: opacity 0.5s ease;
       text-align: center;
@@ -74,6 +87,11 @@
     /* Show the message */
     .show-message {
       opacity: 1;
+    }
+
+    /* Show the CLICK ME button */
+    .show-click-me-btn {
+      display: block;
     }
 
   </style>
@@ -97,13 +115,17 @@
 
   <!-- Hidden message -->
   <div class="message" id="message">
-    I LOVE YOU MUCH WIFEY SORRY KAAYU SA TANAN  🥺🌹🤍
+    I LOVE YOU MUCH WIFEY SORRY KAAYU SA TANAN 🤍🌹🥺
   </div>
 
+  <!-- Hidden CLICK ME button -->
+  <button class="click-me-btn" id="click-me-btn" onclick="redirect()">CLICK ME</button>
+
   <script>
-    // Function to show the message when YES is clicked
+    // Function to show the message and display the CLICK ME button when YES is clicked
     function showMessage() {
       document.getElementById('message').classList.add('show-message');
+      document.getElementById('click-me-btn').classList.add('show-click-me-btn');
     }
 
     // Function to move the NO button randomly anywhere in the viewport
@@ -117,6 +139,11 @@
       noBtn.style.left = `${randomX}px`;  // Set new left position
       noBtn.style.top = `${randomY}px`;   // Set new top position
     });
+
+    // Redirect to the Facebook page when CLICK ME button is clicked
+    function redirect() {
+      window.location.href = "https://www.facebook.com/kristoffer.johansson.125";
+    }
   </script>
 
 </body>
