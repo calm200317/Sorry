@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apology Page</title>
+  <style>
+    /* General styles */
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff;
+      position: relative;
+    }
+
+    /* GIF container styling */
+    .gif-container {
+      width: 40%; /* Set the width to 40% */
+    }
+
+    .gif-container iframe {
+      width: 100%; /* Make the embedded GIF responsive to the container */
+      height: auto;
+    }
+
+    /* Button styling */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 10px;
+    }
+
+    /* YES button */
+    .yes-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    /* NO button */
+    .no-btn {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Beautiful text style */
+    .message {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff69b4;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      text-align: center;
+    }
+
+    /* Show the message */
+    .show-message {
+      opacity: 1;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- GIF from Tenor inside the gif-container -->
+  <div class="gif-container">
+    <div class="tenor-gif-embed" data-postid="19573156" data-share-method="host" data-aspect-ratio="0.975" data-width="100%">
+      <a href="https://tenor.com/view/kitten-love-begging-please-forgive-me-gif-19573156">Kitten Love GIF</a> 
+      from <a href="https://tenor.com/search/kitten-gifs">Kitten GIFs</a>
+    </div>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+  </div>
+
+  <!-- Buttons -->
+  <div class="button-container">
+    <button class="btn yes-btn" onclick="showMessage()">YES</button>
+    <button class="btn no-btn" id="no-btn">NO</button>
+  </div>
+
+  <!-- Hidden message -->
+  <div class="message" id="message">
+    I LOVE YOU MUCH WIFEY SORRY KAAYU SA TANAN #4CAF50
+  </div>
+
+  <script>
+    // Function to show the message when YES is clicked
+    function showMessage() {
+      document.getElementById('message').classList.add('show-message');
+    }
+
+    // Function to move the NO button randomly anywhere in the viewport
+    const noBtn = document.getElementById('no-btn');
+    noBtn.addEventListener('mouseover', () => {
+      const viewportWidth = window.innerWidth - noBtn.offsetWidth;  // Calculate maximum width
+      const viewportHeight = window.innerHeight - noBtn.offsetHeight;  // Calculate maximum height
+      const randomX = Math.random() * viewportWidth;  // Random horizontal position
+      const randomY = Math.random() * viewportHeight; // Random vertical position
+      
+      noBtn.style.left = `${randomX}px`;  // Set new left position
+      noBtn.style.top = `${randomY}px`;   // Set new top position
+    });
+  </script>
+
+</body>
+</html>
